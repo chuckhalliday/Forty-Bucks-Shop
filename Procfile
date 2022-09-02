@@ -1,1 +1,1 @@
-web: gunicorn fortybucks.wsgi.application
+web: gunicorn fortybucks.wsgi
