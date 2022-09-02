@@ -1,7 +1,9 @@
 asgiref==3.5.2
+decouple==8.18.0
 distlib==0.3.5
 dj-database-url==1.0.0
 Django==4.1
+environ==8.18.0
 filelock==3.8.0
 gunicorn==20.1.0
 platformdirs==2.5.2
