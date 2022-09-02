@@ -1,2 +1,1 @@
-web: gunicorn backend.wsgi
-heroku config:set DISABLE_COLLECTSTATIC=1
+web: gunicorn fortybucks.wsgi
