@@ -23,8 +23,8 @@ class Product(models.Model):
     slug = models.SlugField()
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    image = models.CharField(max_length=255, blank=True, null=True)
+    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -38,18 +38,18 @@ class Product(models.Model):
 
     def get_image(self):
         if self.image:
-            return 'https://fortybucks.herokuapp.com/media' + self.image.url
+            return self.image.url
         return ''
 
     def get_thumbnail(self):
         if self.thumbnail:
-            return 'https://fortybucks.herokuapp.com/media' + self.thumbnail.url
+            return self.thumbnail.url
         else:
             if self.image:
                 self.thumbnail = self.make_thumbnail(self.image)
                 self.save()
 
-                return 'https://fortybucks.herokuapp.com/media' + self.thumbnail.url
+                return self.thumbnail.url
             else:
                 return ''
 
