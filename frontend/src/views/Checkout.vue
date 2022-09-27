@@ -130,7 +130,7 @@ export default {
         this.cart = this.$store.state.cart
 
         if (this.cartTotalLength > 0) {
-            this.stripe = Stripe(process.env.VUE_APP_STRIPE_TEST)
+            this.stripe = Stripe(process.env.VUE_APP_STRIPE)
             const elements = this.stripe.elements();
             this.card = elements.create('card', { hidePostalCode: true })
 
