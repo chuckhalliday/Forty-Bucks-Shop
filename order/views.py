@@ -35,10 +35,11 @@ def checkout(request):
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
+            print ('2')
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    print ('Bad request')
-    #return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    print ('1')
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class OrdersList(APIView):
     authentication_classes = [authentication.TokenAuthentication]
