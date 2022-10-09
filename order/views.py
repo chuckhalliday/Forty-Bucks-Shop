@@ -40,6 +40,6 @@ def checkout(request):
 class OrdersList(APIView):
 
     def get(self, request, format=None):
-        orders = Order.objects.filter(user=request.user)
+        orders = Order.objects.all()[0:4]
         serializer = MyOrderSerializer(orders, many=True)
         return Response(serializer.data)
