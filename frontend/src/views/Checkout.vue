@@ -188,7 +188,7 @@ export default {
             for (let i = 0; i < this.cart.items.length; i++) {
                 const item = this.cart.items[i]
                 const obj = {
-                    product: item.product.id,
+                    product: item.product,
                     quantity: item.quantity,
                     price: item.product.price * item.quantity
                 }
