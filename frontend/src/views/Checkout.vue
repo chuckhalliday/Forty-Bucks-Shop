@@ -121,7 +121,7 @@ export default {
             address: '',
             zipcode: '',
             city: '',
-            errors:[]
+            errors: []
         }
     },
     mounted() {
