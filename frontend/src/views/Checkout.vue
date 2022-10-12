@@ -188,9 +188,9 @@ export default {
             for (let i = 0; i < this.cart.items.length; i++) {
                 const item = this.cart.items[i]
                 const obj = {
-                    product: item.product,
+                    product: item.product.id,
                     quantity: item.quantity,
-                    price: ((item.product.price * item.quantity).toFixed(2)).toString()
+                    price: (item.product.price * item.quantity)
                 }
 
                 items.push(obj)
