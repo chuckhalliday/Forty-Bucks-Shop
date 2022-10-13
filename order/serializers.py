@@ -56,8 +56,8 @@ class OrderSerializer(serializers.ModelSerializer):
             "zipcode",
             "city",
             "phone",
-            "stripe_token",
             "items",
+            "stripe_token",
         )
 
     def create(self, validated_data):
