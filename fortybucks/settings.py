@@ -22,7 +22,7 @@ STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY", 'dev default value'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'fortybucks.herokuapp.com', 'drive.google.com']
 
 
 
