@@ -80,7 +80,7 @@
                         <div class="field">
                             <label>City*</label>
                             <div class="control">
-                                <input type="email" class="input" v-model="city">
+                                <input type="text" class="input" v-model="city">
                             </div>
                         </div>                        
                     </div>
