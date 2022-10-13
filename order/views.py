@@ -18,7 +18,6 @@ from .serializers import OrderSerializer, MyOrderSerializer
 @permission_classes([permissions.IsAuthenticated])
 def checkout(request):
     serializer = OrderSerializer(data=request.data)
-    print('break')
 
     if serializer.is_valid():
         stripe.api_key = settings.STRIPE_SECRET_KEY
