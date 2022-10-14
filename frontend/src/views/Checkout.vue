@@ -205,7 +205,7 @@ export default {
                 'city': this.city,
                 'phone': this.phone,
                 'items': items,
-                'stripeToken': token.id
+                'stripe_token': token.id
             }
 
             await axios
