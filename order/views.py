@@ -31,7 +31,7 @@ def checkout(request):
                 source=serializer.validated_data['stripeToken']
             )
 
-            serializer.save(paid_amount=paid_amount)
+            serializer.save(user=request.user, paid_amount=paid_amount)
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
