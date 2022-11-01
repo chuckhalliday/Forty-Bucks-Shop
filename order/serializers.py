@@ -29,7 +29,7 @@ class MyOrderSerializer(serializers.ModelSerializer):
             "zipcode",
             "city",
             "phone",
-            "stripeToken",
+            "stripe_token",
             "items",
             "paid_amount"
         )
@@ -58,7 +58,7 @@ class OrderSerializer(serializers.ModelSerializer):
             "zipcode",
             "city",
             "phone",
-            "stripeToken",
+            "stripe_token",
             "items",
         )
 

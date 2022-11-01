@@ -177,12 +177,12 @@ export default {
 
                         console.log(result.error.message)
                     } else {
-                        this.stripeTokenHandler(result.token)
+                        this.stripe_tokenHandler(result.token)
                     }
                 })
             }
         },
-        async stripeTokenHandler(token) {
+        async stripe_tokenHandler(token) {
             const items = []
 
             for (let i = 0; i < this.cart.items.length; i++) {
@@ -205,7 +205,7 @@ export default {
                 'city': this.city,
                 'phone': this.phone,
                 'items': items,
-                'stripeToken': token.id
+                'stripe_token': token.id
             }
 
             await axios

@@ -28,7 +28,7 @@ def checkout(request):
                 amount=int(paid_amount * 100),
                 currency='usd',
                 description='Charge from FortyBucks',
-                source=serializer.validated_data['stripeToken']
+                source=serializer.validated_data['stripe_token']
             )
 
             serializer.save(paid_amount=paid_amount)

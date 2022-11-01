@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('phone', models.CharField(max_length=100)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('paid_amount', models.DecimalField(blank=True, decimal_places=2, max_digits=8, null=True)),
-                ('stripeToken', models.CharField(max_length=100)),
+                ('stripe_token', models.CharField(max_length=100)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='orders', to=settings.AUTH_USER_MODEL)),
             ],
             options={
