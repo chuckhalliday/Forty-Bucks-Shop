@@ -13,7 +13,7 @@ class Order(models.Model):
     city = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    paid_amount = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    paid_amount = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
     stripeToken = models.CharField(max_length=100)
 
     class Meta:
