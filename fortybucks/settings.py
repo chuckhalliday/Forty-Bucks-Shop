@@ -51,6 +51,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://fortybucks.herokuapp.com"
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://www.givemefortybucks.com"
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
