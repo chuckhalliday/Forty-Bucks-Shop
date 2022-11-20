@@ -31,7 +31,7 @@ def checkout(request):
         print(type(token))
 
         try:
-            charge = stripe.Charge.create(
+            stripe.Charge.create(
                 amount = amount,
                 currency = "usd",
                 source = token,
