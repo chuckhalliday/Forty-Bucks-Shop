@@ -1,1 +1,1 @@
-web: gunicorn fortybucks.wsgi
+web: gunicorn fortybucks.wsgi --timeout 400
