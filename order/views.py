@@ -33,6 +33,8 @@ def checkout(request):
             print(stripe.api_key)
             print(amount)
             print(token)
+            print(request.user)
+            print(paid_amount)
             stripe.Charge.create(
                 amount = amount,
                 currency = "usd",
