@@ -27,11 +27,12 @@ def checkout(request):
         stripe.api_key = STRIPE_SECRET_KEY
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
         token = serializer.validated_data['stripe_token']
-        print(token)
+        amount=(int(paid_amount * 100))
+        print(amount)
 
         try:
             charge = stripe.Charge.create(
-                amount=int(paid_amount * 100),
+                amount=amount,
                 currency='usd',
                 source=token,
                 description='Charge from FortyBucks',
