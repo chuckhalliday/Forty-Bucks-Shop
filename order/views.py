@@ -26,7 +26,8 @@ def checkout(request):
     if serializer.is_valid():
         stripe.api_key = STRIPE_SECRET_KEY
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
-        token = serializer.validated_data["stripe_token"]
+        st = serializer.validated_data['stripe_token']
+        token = f'"{st}"'
         amount=(int(paid_amount * 100))
 
         try:
