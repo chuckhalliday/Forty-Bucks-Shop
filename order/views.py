@@ -26,7 +26,7 @@ def checkout(request):
     if serializer.is_valid():
         stripe.api_key = STRIPE_SECRET_KEY
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
-        print(paid_amount)
+        print(stripe.api_key)
 
         try:
             charge = stripe.Charge.create(
@@ -35,7 +35,6 @@ def checkout(request):
                 source=serializer.validated_data['stripe_token'],
                 description='Charge from FortyBucks',
             )
-            print(charge)
 
             serializer.save(user=request.user, paid_amount=paid_amount)
 
