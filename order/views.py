@@ -35,6 +35,7 @@ def checkout(request):
             email = email,
             source = token,
         )
+        print(customer)
 
         try:
             stripe.Charge.create(
