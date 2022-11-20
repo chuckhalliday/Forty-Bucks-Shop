@@ -24,9 +24,8 @@ def checkout(request):
     serializer = OrderSerializer(data=request.data)
 
     if serializer.is_valid():
-        print("1")
         stripe.api_key = STRIPE_SECRET_KEY
-        paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
+        paid_amount = 5
 
         try:
             stripe.Charge.create(
@@ -41,7 +40,6 @@ def checkout(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    print("2")
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class OrdersList(APIView):
