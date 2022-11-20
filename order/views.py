@@ -34,13 +34,14 @@ def checkout(request):
             print(stripe.api_key)
             print(amount)
             print(token)
+            print(serializer.validated_data)
             print(request.user)
             print(paid_amount)
             stripe.Charge.create(
-                amount = amount,
-                currency = "usd",
-                source = token,
-                description = "Charge from FortyBucks",
+                amount=amount,
+                currency="usd",
+                source=token,
+                description="Charge from FortyBucks",
             )
 
             serializer.save(user=request.user, paid_amount=paid_amount)
