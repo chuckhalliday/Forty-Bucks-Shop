@@ -15,7 +15,7 @@ from rest_framework.response import Response
 from .models import Order, OrderItem
 from .serializers import OrderSerializer, MyOrderSerializer
 
-STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY", 'dev default value'))
+STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY"))
 
 @api_view(['POST'])
 @authentication_classes([authentication.TokenAuthentication])
