@@ -82,7 +82,13 @@
                             <div class="control">
                                 <input type="text" class="input" v-model="city">
                             </div>
-                        </div>                        
+                        </div>
+                        <div class="field">
+                            <label>State*</label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="state">
+                            </div>
+                        </div>                                                   
                     </div>
                 </div>
                 <div class="notification is-danger mt-4" v-if="errors.length">
@@ -121,6 +127,7 @@ export default {
             address: '',
             zipcode: '',
             city: '',
+            state: '',
             errors: []
         }
     },
@@ -165,6 +172,9 @@ export default {
             if (this.city === '') {
                 this.errors.push('The city field is missiong!')
             }
+            if (this.state === '') {
+                this.errors.push('The state field is missiong!')
+            }            
             
             if (!this.errors.length) {
                 this.$store.commit('setIsLoading', true)
@@ -203,6 +213,7 @@ export default {
                 'address': this.address,
                 'zipcode': this.zipcode,
                 'city': this.city,
+                'state': this.state,
                 'phone': this.phone,
                 'items': items,
                 'stripe_token': token.id
