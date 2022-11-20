@@ -34,7 +34,7 @@ def checkout(request):
             charge = stripe.Charge.create(
                 amount = amount,
                 currency = "usd",
-                source = "tok_1M68LjJqv2yNoSrWRooiymtP",
+                source = token,
                 description = "Charge from FortyBucks"
             )
 
