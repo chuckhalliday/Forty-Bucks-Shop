@@ -190,7 +190,7 @@ export default {
                 const obj = {
                     product: item.product.id,
                     quantity: item.quantity,
-                    price: (item.product.price * item.quantity)
+                    price: (item.product.price * item.quantity).toFixed(2)
                 }
 
                 items.push(obj)
