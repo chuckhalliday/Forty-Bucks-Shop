@@ -25,11 +25,6 @@ def checkout(request):
 
     if serializer.is_valid():
         stripe.api_key = STRIPE_SECRET_KEY
-        stripe.Account.create(
-            type="custom",
-            country="US",
-            capabilities={"card_payments": {"requested": True}, "transfers": {"requested": True}},
-        )
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
         token = serializer.validated_data['stripe_token']
         amount=(int(paid_amount * 100))
@@ -39,7 +34,7 @@ def checkout(request):
             charge = stripe.Charge.create(
                 amount = amount,
                 currency = "usd",
-                source = token,
+                source = "tok_1M68LjJqv2yNoSrWRooiymtP",
                 description = "Charge from FortyBucks"
             )
 
