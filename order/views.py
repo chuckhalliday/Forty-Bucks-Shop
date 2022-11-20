@@ -24,6 +24,7 @@ def checkout(request):
     serializer = OrderSerializer(data=request.data)
 
     if serializer.is_valid():
+        print("1")
         stripe.api_key = STRIPE_SECRET_KEY
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
 
