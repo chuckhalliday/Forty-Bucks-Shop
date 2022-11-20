@@ -48,6 +48,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "https://www.givemefortybucks.com",
     "https://fortybucks.herokuapp.com",
+    "https://api.stripe.com"
 ]
 
 MIDDLEWARE = [
