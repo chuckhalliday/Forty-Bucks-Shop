@@ -31,17 +31,11 @@ def checkout(request):
         amount=(int(paid_amount * 100))
         print(type(token))
 
-        customer = stripe.Customer.create(
-            email = email,
-            source = token,
-        )
-        print(customer)
-
         try:
             stripe.Charge.create(
                 amount = amount,
                 currency = "usd",
-                customer = customer,
+                source = token,
                 description = "Charge from FortyBucks",
             )
 
