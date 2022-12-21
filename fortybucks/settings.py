@@ -20,7 +20,7 @@ SECRET_KEY = (os.environ.get("SECRET_KEY", 'dev default value'))
 STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY", 'dev default value'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'fortybucks.herokuapp.com', 'drive.google.com']
 
@@ -87,8 +87,12 @@ WSGI_APPLICATION = 'fortybucks.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES = {
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation

@@ -31,12 +31,6 @@ def checkout(request):
         amount=(int(paid_amount * 100))
 
         try:
-            print(stripe.api_key)
-            print(amount)
-            print(token)
-            print(serializer.validated_data)
-            print(request.user)
-            print(paid_amount)
             stripe.Charge.create(
                 amount=amount,
                 currency="usd",
