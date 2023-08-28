@@ -22,20 +22,17 @@ STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY"))
 @permission_classes([permissions.IsAuthenticated])
 def checkout(request):
     serializer = OrderSerializer(data=request.data)
-
+    print(STRIPE_SECRET_KEY)
     if serializer.is_valid():
         stripe.api_key = STRIPE_SECRET_KEY
         paid_amount = sum(item.get('quantity') * item.get('product').price for item in serializer.validated_data['items'])
-        st = serializer.validated_data['stripe_token']
-        token = f'"{st}"'
-        amount=(int(paid_amount * 100))
 
         try:
-            stripe.Charge.create(
-                amount=amount,
-                currency="usd",
-                source=token,
-                description="Charge from FortyBucks",
+            charge = stripe.Charge.create(
+                amount=int(paid_amount * 100),
+                currency='USD',
+                description='Charge from Forty Bucks',
+                source=serializer.validated_data['stripe_token']
             )
 
             serializer.save(user=request.user, paid_amount=paid_amount)
@@ -43,6 +40,7 @@ def checkout(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class OrdersList(APIView):

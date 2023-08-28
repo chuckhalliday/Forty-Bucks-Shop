@@ -22,7 +22,7 @@ STRIPE_SECRET_KEY = (os.environ.get("STRIPE_SECRET_KEY", 'dev default value'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'fortybucks.herokuapp.com', 'drive.google.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'drive.google.com']
 
 
 # Application definition
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "https://www.givemefortybucks.com",
-    "https://fortybucks.herokuapp.com",
     "https://api.stripe.com"
 ]
 
@@ -123,6 +122,8 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 
@@ -130,7 +131,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
